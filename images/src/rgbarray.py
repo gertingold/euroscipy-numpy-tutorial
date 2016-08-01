@@ -36,7 +36,7 @@ def corner(nx, ny, z, facecolor, edgecolor, trans, xdir, ydir):
     x1, y1 = projector(nx, z+1, ny)
     c.stroke(path.line(x0, y0, x1, y1), [edgecolor])
 
-projector = graph.graphxyz.parallel(50, -30).point
+projector = graph.graphxyz.central(60, -50, 25).point
 
 unit.set(wscale=1.5)
 c = canvas.canvas()
@@ -44,7 +44,7 @@ nxmax = 7
 nymax = 5
 trans = 0.4
 edgecolors = (color.rgb(0, 0, 0.8),
-              color.rgb(0, 0.7, 0),
+              color.rgb(0, 0.6, 0),
               color.rgb(0.8, 0, 0))
 w = 0.3
 facecolors = (color.rgb(w, w, 1),
