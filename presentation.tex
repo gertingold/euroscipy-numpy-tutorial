@@ -94,33 +94,45 @@
 
 \frame
 {
+ \frametitle{A wish list}
+
  \begin{itemize}
-  \item We want to work with vectors and matrices
-  \item We want our code to run fast
+  \item we want to work with vectors and matrices
+ \end{itemize}
+
+ \begin{columns}
+  \begin{column}{0.55\textwidth}
+   \begin{displaymath}
+    \begin{pmatrix}
+     a_{11} & a_{12} & \cdots & a_{1n}\\
+     a_{21} & a_{22} & \cdots & a_{2n}\\
+     \vdots & \vdots & \ddots & \vdots\\
+     a_{n1} & a_{n2} & \cdots & a_{nn}\\
+    \end{pmatrix}
+   \end{displaymath}
+  \end{column}%
+  \begin{column}{0.45\textwidth}
+   \includegraphics[width=0.7\textwidth]{rgbarray}
+
+   colour image as $N\times M\times3$-array
+  \end{column}
+ \end{columns}
+
+ \begin{itemize}
+  \item we want our code to run fast
+  \item we want support for linear algebra
+  \item \dots 
  \end{itemize}
 }
 
 \frame
 {
- \begin{displaymath}
-  \begin{pmatrix}
-   a_{11} & a_{12} & \cdots & a_{1n}\\
-   a_{21} & a_{22} & \cdots & a_{2n}\\
-   \vdots & \vdots & \ddots & \vdots\\
-   a_{n1} & a_{n2} & \cdots & a_{nn}\\
-  \end{pmatrix}
- \end{displaymath}
-}
-
-\frame
-{
- \frametitle{Numerical representation of a colour image}
+ \frametitle{List indexing and slicing}
 
  \begin{center}
-  \includegraphics[width=0.5\textwidth]{rgbarray}
- 
-  \vspace{0.3truecm}
-  $N\times M\times3$-array
+  \includegraphics[width=0.96\textwidth]{listindexing2}
+
+  \includegraphics[width=\textwidth]{listindexing1}
  \end{center}
 }
 
