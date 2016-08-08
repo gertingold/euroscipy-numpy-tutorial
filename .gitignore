@@ -87,3 +87,11 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# settings for LaTeX presentation
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
