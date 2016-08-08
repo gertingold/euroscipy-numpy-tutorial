@@ -5,7 +5,7 @@ def draw_square(x, y, kante):
 
 text.set(text.LatexRunner)
 text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}')
-unit.set(xscale=1.3)
+unit.set(xscale=1.3, wscale=1.2)
 c = canvas.canvas()
 
 kante = 1
