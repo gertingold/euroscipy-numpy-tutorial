@@ -25,7 +25,7 @@ for n in range(nrboxes):
     c.text(x+ldist*kante, (1-ldist)*kante, n, [text.valign.top])
     nstr = ""
     if n>0: nstr = "%+i" % n
-    c.text(x+(1-0.5*ldist)*kante, ldist*kante, 'N'+nstr, [text.halign.right])
+    c.text(x+(1-0.5*ldist)*kante, ldist*kante, '-N'+nstr, [text.halign.right])
     x = (n+nrboxes)*(kante+dist)+dist+punkte
     draw_square(x, 0, kante)
     c.text(x+ldist*kante, (1-ldist)*kante, 'N'+str(n-3), [text.valign.top])
