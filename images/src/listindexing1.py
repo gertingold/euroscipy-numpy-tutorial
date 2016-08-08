@@ -12,7 +12,7 @@ kante = 1
 dist = 0.2
 nrboxes = 8
 
-boxcolor = color.rgb(0.3, 0.3, 0.6)
+boxcolor = color.rgb(1, 0.7, 0.4)
 c.fill(path.rect(-0.3*dist, -0.2, 5*kante+4.6*dist, kante+0.4), [boxcolor])
 c.fill(path.rect(-0.3*dist+5*(kante+dist), -0.2, 3*kante+2.6*dist, kante+0.4), [boxcolor])
 
