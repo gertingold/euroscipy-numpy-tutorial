@@ -2,9 +2,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{arev}
 \usepackage{beramono}
+\usepackage{fontawesome}
 \usepackage[T1]{fontenc}
 \usepackage{pifont}
 \usepackage{rotating}
+\usepackage{listings}
 \usepackage{hyperref}
 
 \usetheme{default}
@@ -27,29 +29,34 @@
   ,pdfauthor={Gert-Ludwig Ingold <gert.ingold@physik.uni-augsburg.de>}
   ,pdfsubject={Tutorial at EuroSciPy 2016, Erlangen 23.8.2016}
   ,pdfkeywords={Python, NumPy, tutorial, EuroSciPy}
-%  ,pdfpagemode=FullScreen
 }
+
+\lstset{%
+  language=Python
+  ,basicstyle={\ttfamily},
+}
+
+\newfontfamily\DejaSans{DejaVu Sans}
+\definecolor{positive}{rgb}{0, 0.5, 0}
+\definecolor{negative}{rgb}{0.7, 0, 0}
+\newcommand\smiley{\textcolor{positive}{\DejaSans ☺}}
+\newcommand\frownie{\textcolor{negative}{\DejaSans ☹}}
 
 \graphicspath{{./images/}}
 
 \begin{document}
 
-\frame
-{
-\begin{center}
+\begin{frame}
+ \begin{center}
   \structure{\Large\textbf{Introduction to NumPy arrays}}\\[0.3truecm]
   \structure{\large Gert-Ludwig Ingold}
 
   \vspace{2truecm}
-  \ttfamily{\footnotesize git clone https://github.com/gertingold/euroscipy16-numpy-tutorial.git}
-\end{center}
-}
+  \faicon{github}\ \ttfamily{\footnotesize https://github.com/gertingold/euroscipy16-numpy-tutorial.git}
+ \end{center}
+\end{frame}
 
-\frame[t]
-{
- \frametitle{Python comes with batteries included}
-
-%\vspace{0.2truecm}
+\begin{frame}[t]{Python comes with batteries included}
  \ding{220} extensive Python standard library
 
  \vspace{0.3truecm}
@@ -68,10 +75,9 @@
  \end{center}
 
  + SciKits and many other packages
-}
+\end{frame}
 
-\frame
-{
+\begin{frame}
  \vspace*{-0.5truecm}
  \begin{columns}
   \begin{column}[t]{0.5\textwidth}
@@ -90,12 +96,9 @@
    \end{center}
   \end{column}
  \end{columns}
-}
+\end{frame}
 
-\frame
-{
- \frametitle{A wish list}
-
+\begin{frame}{A wish list}
  \begin{itemize}
   \item we want to work with vectors and matrices
  \end{itemize}
@@ -123,17 +126,81 @@
   \item we want support for linear algebra
   \item \dots 
  \end{itemize}
-}
+\end{frame}
 
-\frame
-{
- \frametitle{List indexing and slicing}
-
+\begin{frame}{List indexing}
  \begin{center}
   \includegraphics[width=0.96\textwidth]{listindexing2}
+ \end{center}
+ \begin{itemize}
+  \item indexing starts at 0
+  \item negative indices count from the end of the list to the beginning
+ \end{itemize}
+\end{frame}
 
+\begin{frame}{List slicing}
+
+ basic syntax: \texttt{[start:stop:stride]}
+
+ \vspace{0.2truecm}
+ \begin{center}
   \includegraphics[width=\textwidth]{listindexing1}
  \end{center}
-}
+ \begin{itemize}
+  \item slice contains the elements \texttt{start} to \texttt{stop-1}
+  \item slice contains \texttt{stop-start} elements
+  \item default values:
+  \begin{itemize}
+      \item \makebox[1.5truecm]{\texttt{start}\hfill} 0 (first element)
+      \item \makebox[1.5truecm]{\texttt{stop}\hfill} N-1 (last element)
+      \item \makebox[1.5truecm]{\texttt{stride}\hfill} 1
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \begin{center}
+  \structure{\large\bfseries Let's do some slicing}
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile, t]{Matrices and lists of lists}
+ 
+ \vspace{0.3truecm}
+ Can we use lists of lists to work with matrices?
+
+ \begin{columns}
+  \begin{column}{0.4\textwidth}
+   \begin{displaymath}
+    \begin{pmatrix}
+     0 & 1 & 2\\
+     3 & 4 & 5\\
+     6 & 7 & 8
+    \end{pmatrix}
+   \end{displaymath}
+  \end{column}%
+  \begin{column}{0.6\textwidth}
+   \begin{center}
+    \begin{lstlisting}[language=python]
+matrix = [[0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8]]
+    \end{lstlisting}
+
+    \vspace{\baselineskip}
+   \end{center}
+  \end{column}
+ \end{columns}
+ \begin{itemize}
+  \item How can we extract a row? \uncover<3>{\smiley}
+  \item How can we extract a column? \uncover<3>{\frownie}
+ \end{itemize}
+
+ \vspace{0.3truecm}
+ \begin{center}
+  \only<2>{\structure{\large\bfseries Let's do some experiments}}%
+  \only<3>{\alert{Lists of lists are not well suited to work with matrices}}
+ \end{center}
+\end{frame}
 
 \end{document}
