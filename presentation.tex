@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[svgnames]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{arev}
 \usepackage{beramono}
@@ -7,6 +7,7 @@
 \usepackage{pifont}
 \usepackage{rotating}
 \usepackage{listings}
+\usepackage{ulem}
 \usepackage{hyperref}
 
 \usetheme{default}
@@ -21,7 +22,7 @@
 }
 
 \setbeamercolor{alerted text}{fg=red!70!black}
-\setbeamercolor{structure}{fg=red!50!black}
+\setbeamercolor{structure}{fg=Navy}
 
 
 \hypersetup{%
@@ -33,7 +34,8 @@
 
 \lstset{%
   language=Python
-  ,basicstyle={\ttfamily},
+  ,basicstyle={\ttfamily}
+  ,escapechar=/
 }
 
 \newfontfamily\DejaSans{DejaVu Sans}
@@ -41,6 +43,12 @@
 \definecolor{negative}{rgb}{0.7, 0, 0}
 \newcommand\smiley{\textcolor{positive}{\DejaSans ☺}}
 \newcommand\frownie{\textcolor{negative}{\DejaSans ☹}}
+
+\newcommand{\soutthick}[1]{%
+  \renewcommand{\ULthickness}{1.5pt}%
+  \sout{#1}%
+  \renewcommand{\ULthickness}{.4pt}% Resetting to ulem default
+}
 
 \graphicspath{{./images/}}
 
@@ -160,7 +168,7 @@
 
 \begin{frame}
  \begin{center}
-  \structure{\large\bfseries Let's do some slicing}
+     \structure{\large\bfseries Let's do some slicing}
  \end{center}
 \end{frame}
 
@@ -181,7 +189,7 @@
   \end{column}%
   \begin{column}{0.6\textwidth}
    \begin{center}
-    \begin{lstlisting}[language=python]
+    \begin{lstlisting}%[language=python]
 matrix = [[0, 1, 2],
           [3, 4, 5],
           [6, 7, 8]]
@@ -199,7 +207,56 @@ matrix = [[0, 1, 2],
  \vspace{0.3truecm}
  \begin{center}
   \only<2>{\structure{\large\bfseries Let's do some experiments}}%
-  \only<3>{\alert{Lists of lists are not well suited to work with matrices}}
+  \only<3>{\alert{Lists of lists do not work like matrices}}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Problems with lists as matrices}
+ \begin{itemize}
+  \item different axes are not treated on equal footing
+  \item lists can contain arbitrary objects\\
+        matrices have a homogeneous structure
+  \item list elements can be scattered in memory
+ \end{itemize}
+
+ \vspace{0.3truecm}
+ Applied to matrices \dots
+ \begin{itemize}
+  \item[] \dots lists are conceptually inappropriate
+  \item[] \dots lists have less performance than possible
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{We need a new object}
+
+ \begin{center}
+  \structure{\Huge\bfseries ndarray}
+
+  \vspace{0.5truecm}
+  multidimensional, homogeneous array of fixed-size items
+ \end{center}
+\end{frame}
+
+\begin{frame}[fragile, t]{Getting started}
+
+ \vspace{1.5truecm}
+ Import the NumPy package:
+
+ \vspace{0.4truecm}
+ \begin{center}
+  \begin{minipage}{0.7\textwidth}
+   \only<1>{\texttt{from numpy import *}}
+   \only<2->{\soutthick{\texttt{from numpy import *}}}
+
+   \only<2>{\texttt{from numpy import array, sin, cos}}
+   \only<3->{\soutthick{\texttt{from numpy import array, sin, cos}}}
+
+   \only<3>{\texttt{import numpy}}
+   \only<4->{\soutthick{\texttt{import numpy}}}
+
+   \only<4>{\texttt{import numpy as
+   np}\quad\rotatebox[origin=c]{180}{\alert{\ding{220}}}}
+  \end{minipage}
  \end{center}
 \end{frame}
 
