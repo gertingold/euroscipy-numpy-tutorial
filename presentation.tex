@@ -252,19 +252,134 @@ matrix = [[0, 1, 2],
 
  \vspace{0.4truecm}
  \begin{center}
-  \begin{minipage}{0.7\textwidth}
-   \only<1>{\texttt{from numpy import *}}
+  \begin{minipage}{0.75\textwidth}
+   \only<1>{\texttt{from numpy import *}}%
    \only<2->{\soutthick{\texttt{from numpy import *}}}
 
-   \only<2>{\texttt{from numpy import array, sin, cos}}
+   \only<2>{\texttt{from numpy import array, sin, cos}}%
    \only<3->{\soutthick{\texttt{from numpy import array, sin, cos}}}
 
-   \only<3>{\texttt{import numpy}}
+   \only<3>{\texttt{import numpy}}%
    \only<4->{\soutthick{\texttt{import numpy}}}
 
-   \only<4>{\texttt{import numpy as
-   np}\quad\rotatebox[origin=c]{180}{\alert{\ding{220}}}}
+   \only<4>{\texttt{import numpy as np}\quad\rotatebox[origin=c]{180}{\alert{\ding{220}}}
+
+            \vspace{0.5truecm}
+            \begin{center}
+             \includegraphics[width=3truecm]{yourturn}
+            \end{center}}
   \end{minipage}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Data types}
+Some important data types:
+
+\vspace{0.3truecm}
+\begin{tabular}{ll}
+integer & \texttt{int8}, \texttt{int16}, \texttt{int32}, \texttt{int64}, \texttt{uint8}, \dots\\[0.2truecm]
+float   & \texttt{float16}, \texttt{float32}, \texttt{float64}, \dots \\[0.2truecm]
+complex & \texttt{complex64}, \texttt{complex128}, \dots\\[0.2truecm]
+boolean & \texttt{bool8}\\[0.2truecm]
+Unicode string  & \\
+\end{tabular}
+
+\vspace{0.3truecm}
+Default: Python float
+
+\vspace{0.3truecm}
+\begin{center}
+ \alert{Beware of overflows!}
+\end{center}
+
+\begin{center}
+ \includegraphics[width=3truecm]{yourturn}
+\end{center}
+\end{frame}
+
+\begin{frame}{Strides}
+ \begin{columns}
+  \begin{column}{0.33\textwidth}
+   \begin{displaymath}
+    \begin{pmatrix}
+     0 & 1 & 2 & 3 & 4 & 5
+    \end{pmatrix}
+   \end{displaymath}
+  \end{column}%
+  \begin{column}{0.67\textwidth}
+   (8,)
+
+   \vspace{0.2truecm}
+   \includegraphics[width=\textwidth]{strides_0}
+  \end{column}
+ \end{columns}
+
+ \vspace{0.8truecm}
+ \begin{columns}
+  \begin{column}{0.33\textwidth}
+   \begin{displaymath}
+    \begin{pmatrix}
+     0 & 1 & 2\\
+     3 & 4 & 5
+    \end{pmatrix}
+   \end{displaymath}
+  \end{column}%
+  \begin{column}{0.67\textwidth}
+   (24, 8)
+
+   \vspace{0.2truecm}
+   \includegraphics[width=\textwidth]{strides_3}
+  \end{column}
+ \end{columns}
+
+ \vspace{0.8truecm}
+ \begin{columns}
+  \begin{column}{0.33\textwidth}
+   \begin{displaymath}
+    \begin{pmatrix}
+     0 & 1 \\
+     2 & 3 \\
+     4 & 5
+    \end{pmatrix}
+   \end{displaymath}
+  \end{column}%
+  \begin{column}{0.67\textwidth}
+   (16, 8)
+
+   \vspace{0.2truecm}
+   \includegraphics[width=\textwidth]{strides_2}
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\begin{frame}{Views}
+ For the sake of efficiency, NumPy uses views if possible.
+
+ \begin{itemize}
+  \item Changing one or more matrix elements will change it in all views.
+  \item Example: transposition of a matrix \texttt{a.T}\\
+        No need to copy the matrix and to create a new one
+ \end{itemize}
+ \begin{center}
+  \includegraphics[width=3truecm]{yourturn}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Some array creation routines}
+
+ \begin{itemize}
+  \item numerical ranges:
+        \texttt{arange}, \texttt{linspace}, \texttt{logspace}
+  \item homogeneous data:
+        \texttt{zeros}, \texttt{ones}
+  \item diagonal elements:
+        \texttt{diag}, \texttt{eye}
+  \item random numbers:
+        \texttt{rand}, \texttt{randint}
+ \end{itemize}
+
+ \begin{center}
+  \includegraphics[width=3truecm]{yourturn}
  \end{center}
 \end{frame}
 
