@@ -30,7 +30,7 @@ def make_stride_figure(c, lowerstride, uperstride=1, nrentries=6):
                                 x+(lowerstride-0.5)*wd+lowerstride*dist, -5*dist,
                                 x+lowerstride*wd+(lowerstride-0.7)*dist, -0.5*dist),
                      [deco.earrow.large])
-            c.text(x+1.5*wd+dist,-5.2*dist, r'\Large %i' % (lowerstride*8),
+            c.text(x+0.5*lowerstride*wd+dist,-5.2*dist, r'\Large %i' % (lowerstride*8),
                    [text.halign.center, text.valign.top, textcolor])
 
 text.set(text.LatexRunner)
