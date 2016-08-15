@@ -360,6 +360,7 @@ Default: Python float
   \item Example: transposition of a matrix \texttt{a.T}\\
         No need to copy the matrix and to create a new one
  \end{itemize}
+
  \begin{center}
   \includegraphics[width=3truecm]{yourturn}
  \end{center}
@@ -380,6 +381,69 @@ Default: Python float
 
  \begin{center}
   \includegraphics[width=3truecm]{yourturn}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Indexing and slicing in one dimension}
+ \structure{1d arrays}: indexing and slicing as for lists
+
+ \begin{itemize}
+  \item first element has index 0
+  \item negative indices count from the end
+  \item slices: \texttt{[start:stop:step]}\\
+        \strut\hphantom{slices:\ }  without the element indexed by \texttt{stop}
+  \item if values are omitted:
+        \begin{itemize}
+         \item \texttt{start}: starting from first element
+         \item \texttt{stop}: until (and including) the last element
+         \item \texttt{step}: all elements between \texttt{start} and \texttt{stop}-1
+        \end{itemize}
+ \end{itemize}
+
+ \begin{center}
+  \includegraphics[width=3truecm]{yourturn}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Indexing and slicing in higher dimensions}
+ \begin{itemize}
+  \item usual slicing syntax
+  \item difference to lists:\\
+        slices for the various axes separated by comma
+ \end{itemize}
+
+ \begin{center}
+  \only<1>{\includegraphics[width=0.8\textwidth]{arraygraphics_0}}%
+  \only<2>{\includegraphics[width=0.8\textwidth]{arraygraphics_1}}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Indexing and slicing in higher dimensions}
+ \begin{center}
+  \includegraphics[width=3truecm]{yourturn}
+ \end{center}
+
+ \begin{center}
+  \only<1>{\includegraphics[width=0.8\textwidth]{arraygraphics_2_wo}}%
+  \only<2>{\includegraphics[width=0.8\textwidth]{arraygraphics_2}}%
+  \only<3>{\includegraphics[width=0.8\textwidth]{arraygraphics_3_wo}}%
+  \only<4>{\includegraphics[width=0.8\textwidth]{arraygraphics_3}}%
+  \only<5>{\includegraphics[width=0.8\textwidth]{arraygraphics_4_wo}}%
+  \only<6>{\includegraphics[width=0.8\textwidth]{arraygraphics_4}}%
+  \only<7>{\includegraphics[width=0.8\textwidth]{arraygraphics_5_wo}}%
+  \only<8>{\includegraphics[width=0.8\textwidth]{arraygraphics_5}}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Fancy indexing -- Boolean mask}
+ \begin{center}
+  \includegraphics[width=0.8\textwidth]{arraygraphics_6}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Fancy indexing -- array of integers}
+ \begin{center}
+  \includegraphics[width=0.8\textwidth]{arraygraphics_7}
  \end{center}
 \end{frame}
 
