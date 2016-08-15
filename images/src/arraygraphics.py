@@ -5,20 +5,20 @@ import sys
 import numpy as np
 from pyx import canvas, color, path, text, unit
 
-def arraygraphics(array, idxstr, title=True, xscale=1.0,
+def arraygraphics(a, idxstr, title=True, xscale=1.0,
                fgcolor=color.grey(1), bgcolor=color.hsb(0.9, 1, 0.5)):
     """create a graphical representation of a two-dimensional array
     
-    array     array containing the data to be shown
+    a         array containing the data to be shown
     slicestr  string defining the slice to be highlighted
     xscale    PyX scaling for text
     fgcolor   color of highlighted data
     bgcolor   color of highlighted cells
 
     """
-    assert array.ndim == 2
-    n0, n1 = array.shape
-    highlighted = np.zeros_like(array, dtype=bool)
+    assert a.ndim == 2
+    n0, n1 = a.shape
+    highlighted = np.zeros_like(a, dtype=bool)
     exec("highlighted{} = True".format(idxstr))
     unit.set(xscale=xscale)
     text.set(text.LatexRunner)
@@ -41,12 +41,12 @@ def arraygraphics(array, idxstr, title=True, xscale=1.0,
                 textattrs = textcentered_highlighted
             else:
                 textattrs = textcentered
-            c.text(nx+0.5, n0-ny-0.5, array[ny, nx], textattrs)
+            c.text(nx+0.5, n0-ny-0.5, a[ny, nx], textattrs)
     if title:
         textcolor = bgcolor
     else:
         textcolor = color.grey(1)
-    titlestr = r"\Large a"+idxstr
+    titlestr = r"\Large a"+idxstr.replace('%', '\%')
     c.text(0.5*n1, n0+0.4, titlestr, [text.halign.center, textcolor])
     return c
 
@@ -54,7 +54,9 @@ if __name__ == '__main__':
     a = np.arange(40).reshape(5, 8)
     basename = os.path.splitext(sys.argv[0])[0]
     for nr, idxstr in enumerate(('[2, -3]', '[:3, :5]', '[-3:, -3:]',
-                                 '[:, 3]', '[1, 3:6]', '[1::2, ::3]')):
+                                 '[:, 3]', '[1, 3:6]', '[1::2, ::3]',
+                                 '[a % 3 == 0]',
+                                 '[(1, 1, 2, 2, 3, 3), (3, 4, 2, 5, 3, 4)]')):
         for title in (True, False):
             filename = '_'.join([basename, str(nr)])
             if not title:
