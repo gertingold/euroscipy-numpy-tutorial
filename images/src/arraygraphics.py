@@ -1,8 +1,11 @@
 from itertools import product
+import os
+import sys
+
 import numpy as np
 from pyx import canvas, color, path, text, unit
 
-def arraygraphics(array, idxstr, xscale=1.0,
+def arraygraphics(array, idxstr, title=True, xscale=1.0,
                fgcolor=color.grey(1), bgcolor=color.hsb(0.9, 1, 0.5)):
     """create a graphical representation of a two-dimensional array
     
@@ -39,11 +42,21 @@ def arraygraphics(array, idxstr, xscale=1.0,
             else:
                 textattrs = textcentered
             c.text(nx+0.5, n0-ny-0.5, array[ny, nx], textattrs)
-    title = "a"+idxstr
-    c.text(0.5*n1, n0+0.4, title, [text.halign.center, bgcolor])
+    if title:
+        textcolor = bgcolor
+    else:
+        textcolor = color.grey(1)
+    titlestr = r"\Large a"+idxstr
+    c.text(0.5*n1, n0+0.4, titlestr, [text.halign.center, textcolor])
     return c
 
 if __name__ == '__main__':
-    a = np.arange(40).reshape(-1, 8)
-#   arraygraphics(a, "[1::2, 1::3]").writePDFfile()
-    arraygraphics(a, "[[0, 1, 1, 2], [4, 3, 5, 4]]").writePDFfile()
+    a = np.arange(40).reshape(5, 8)
+    basename = os.path.splitext(sys.argv[0])[0]
+    for nr, idxstr in enumerate(('[2, -3]', '[:3, :5]', '[-3:, -3:]',
+                                 '[:, 3]', '[1, 3:6]', '[1::2, ::3]')):
+        for title in (True, False):
+            filename = '_'.join([basename, str(nr)])
+            if not title:
+                filename = filename+'_wo'
+            arraygraphics(a, idxstr, title=title).writePDFfile(filename)
