@@ -14,6 +14,9 @@ ycells = 3
 xshift = 0.8
 yshift = 1.2
 dist = 0.2
+myred = color.rgb(0.8, 0, 0)
+mygreen = color.rgb(0, 0.6, 0)
+myblue = color.rgb(0, 0, 0.8)
 for c, start in ((frontplane, 0), (backplane, xcells*ycells)):
     c.stroke(path.rect(0, 0, 4, 3),
              [deco.filled([color.grey(1), color.transparency(0.2)])])
@@ -33,11 +36,17 @@ for x, y in product((0, xcells), (0, ycells)):
 c.insert(frontplane)
 dx = -dist*yshift/sqrt(xshift**2+yshift**2)
 dy = dist*xshift/sqrt(xshift**2+yshift**2)
-c.stroke(path.line(dx, ycells+dy, dx+xshift, ycells+dy+yshift), [deco.earrow])
+c.stroke(path.line(dx, ycells+dy, dx+xshift, ycells+dy+yshift),
+         [deco.earrow, myred])
 c.text(0.5*xshift+2*dx, ycells+0.5*yshift+2*dy, 'axis 0',
-       [text.halign.center, trafo.rotate(180/pi*atan2(yshift, xshift))])
-c.stroke(path.line(-dist, ycells, -dist, 0), [deco.earrow])
-c.text(-2*dist, 0.5*ycells, 'axis 1', [text.halign.center, trafo.rotate(90)])
-c.stroke(path.line(0, -dist, xcells, -dist), [deco.earrow])
-c.text(0.5*xcells, -2*dist, 'axis 2', [text.halign.center, text.valign.top])
+       [text.halign.center, myred,
+        trafo.rotate(180/pi*atan2(yshift, xshift))])
+c.stroke(path.line(-dist, ycells, -dist, 0),
+         [deco.earrow, mygreen])
+c.text(-2*dist, 0.5*ycells, 'axis 1',
+       [text.halign.center, mygreen, trafo.rotate(90)])
+c.stroke(path.line(0, -dist, xcells, -dist),
+         [deco.earrow, myblue])
+c.text(0.5*xcells, -2*dist, 'axis 2',
+       [text.halign.center, text.valign.top, myblue])
 c.writePDFfile()
