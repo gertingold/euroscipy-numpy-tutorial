@@ -45,6 +45,9 @@
 \definecolor{negative}{rgb}{0.7, 0, 0}
 \newcommand\smiley{\textcolor{positive}{\DejaSans ☺}}
 \newcommand\frownie{\textcolor{negative}{\DejaSans ☹}}
+\definecolor{myred}{rgb}{0.8, 0, 0}
+\definecolor{mygreen}{rgb}{0, 0.6, 0}
+\definecolor{myblue}{rgb}{0, 0, 0.8}
 
 \newcommand{\soutthick}[1]{%
   \renewcommand{\ULthickness}{1.5pt}%
@@ -194,7 +197,7 @@
   \end{column}%
   \begin{column}{0.6\textwidth}
    \begin{center}
-    \begin{lstlisting}%[language=python]
+    \begin{lstlisting}
 matrix = [[0, 1, 2],
           [3, 4, 5],
           [6, 7, 8]]
@@ -473,6 +476,39 @@ Default: Python float
   \begin{column}{0.6\textwidth}
    np.sum(a)\\
    np.sum(a, axis=\ldots)
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Axes in more than two dimensions}
+ \begin{columns}
+  \begin{column}{0.4\textwidth}
+   \begin{center}
+   \includegraphics[width=0.95\textwidth]{array3d}
+   \end{center}
+  \end{column}%
+  \begin{column}{0.6\textwidth}
+   \begin{lstlisting}
+array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  2,  3/\textcolor{myblue}{]}/,
+        /\textcolor{myblue}{[}/ 4,  5,  6,  7/\textcolor{myblue}{]}/,
+        /\textcolor{myblue}{[}/ 8,  9, 10, 11/\textcolor{myblue}{]}\textcolor{mygreen}{]}/,
+
+       /\textcolor{mygreen}{[}\textcolor{myblue}{[}/12, 13, 14, 15/\textcolor{myblue}{]}/,
+        /\textcolor{myblue}{[}/16, 17, 18, 19/\textcolor{myblue}{]}/,
+        /\textcolor{myblue}{[}/20, 21, 22, 23/\textcolor{myblue}{]}\textcolor{mygreen}{]}\textcolor{myred}{]}/)
+    \end{lstlisting}%
+  \end{column}
+ \end{columns}
+
+ \vspace{0.5truecm}
+ \begin{columns}
+  \begin{column}{0.3\textwidth}
+   \begin{center}
+    \includegraphics[width=3truecm]{yourturn}
+   \end{center}
+  \end{column}%
+  \begin{column}{0.6\textwidth}
+   create this array and produce 2d arrays by cutting perpendicular to the axes 0, 1, and 2
   \end{column}
  \end{columns}
 \end{frame}
