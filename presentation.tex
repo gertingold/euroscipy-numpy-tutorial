@@ -451,15 +451,15 @@ Default: Python float
 \end{frame}
 
 \begin{frame}{Axes}
- \begin{displaymath}
-  \begin{Large}
-  \begin{pmatrix}
-   a_{11} & a_{12} & a_{13} \\
-   a_{21} & a_{22} & a_{23} \\
-   a_{31} & a_{32} & a_{33} \\
-  \end{pmatrix}
-  \end{Large}
- \end{displaymath}
+ \begin{Large}
+  \begin{displaymath}
+   \begin{pmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33} \\
+   \end{pmatrix}
+  \end{displaymath}
+ \end{Large}
 
  \vspace{0.2truecm}
  \begin{center}
@@ -513,7 +513,7 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
  \end{columns}
 \end{frame}
 
-\begin{frame}{Matrix multiplication}
+\begin{frame}[fragile]{Matrix multiplication}
  \begin{columns}
   \begin{column}{0.6\textwidth}
    \begin{center}
@@ -524,8 +524,103 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
    \includegraphics[width=3truecm]{yourturn}
 
    \vspace{0.4truecm}
-   try: \texttt{np.dot$(\cdot, \cdot)$}\\
-   \strut\hphantom{try:\ } \texttt{$\cdot\,@\,\cdot$}
+   try \texttt{np.dot$(\cdot, \cdot)$}\\
+   and \texttt{$\cdot\,@\,\cdot$}\,$^{*)}$
+   
+   \vspace{0.7truecm}
+   \hbox to 1truecm{\hrulefill}
+   \scriptsize{$^{*)}$ Python$\geq$3.5, NumPy$\geq$1.10}
+   \vspace{1truecm}
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\begin{frame}{Mathematical functions in NumPy}
+ \hspace*{-0.45truecm} Universal functions (ufuncs) take ndarrays as argument
+
+ \vspace{0.4truecm}
+ \begin{columns}[t]
+  \begin{column}{0.5\textwidth}
+   \begin{scriptsize}%
+    \structure{Trigonometric functions}\\
+     {\tiny sin, cos, tan, arcsin, arccos, arctan, hypot, arctan2, degrees,
+      radians, unwrap, deg2rad, rad2deg}\\[0.2truecm]
+   \structure{Hyperbolic functions}\\
+     {\tiny sinh, cosh, tanh, arcsinh, arccosh, arctanh}\\[0.2truecm]
+   \structure{Rounding}\\
+     {\tiny around, round\_, rint, fix, floor, ceil, trunc}\\[0.2truecm]
+   \structure{Sums, products, differences}\\
+     {\tiny prod, sum, nansum, cumprod, cumsum, diff, ediff1d,
+      gradient, cross, trapz}\\[0.2truecm]
+   \structure{Exponents and logarithms}\\
+     {\tiny exp, expm1, exp2, log, log10, log2, log1p, logaddexp,
+      logaddexp2}\\[0.2truecm]
+   \end{scriptsize}
+  \end{column}%
+  \begin{column}{0.5\textwidth}
+   \begin{scriptsize}%
+    \structure{Other special functions}\\
+     {\tiny i0, sinc}\\[0.2truecm]
+    \structure{Floating point routines}\\
+     {\tiny signbit, copysign, frexp, ldexp}\\[0.2truecm]
+    \structure{Arithmetic operations}\\
+     {\tiny add, reciprocal, negative, multiply, divide, power, subtract,
+      true\_divide, floor\_divide, fmod, mod, modf, remainder}\\[0.2truecm]
+    \structure{Handling complex numbers}\\
+     {\tiny angle, real, imag, conj}\\[0.2truecm]
+    \structure{Miscellaneous}\\
+     {\tiny convolve, clip, sqrt, square, absolute, fabs, sign, maximum,
+      minimum, fmax, fmin, nan\_to\_num, real\_if\_close, interp}\\
+   \end{scriptsize}
+  \end{column}
+ \end{columns}
+
+ \vspace{0.5truecm}
+ \hspace*{-0.32truecm}{\small Many more special functions are provided as ufuncs by SciPy}
+\end{frame}
+
+\begin{frame}{Rules for broadcasting}
+ Arrays can be broadcast to the same shape if one of the following points is
+ fulfilled:
+ \begin{enumerate}
+  \item The arrays all have exactly the same shape.
+  \item The arrays all have the same number of dimensions and the
+        length of each dimensions is either a common length or 1.
+  \item The arrays that have too few dimensions can have their
+        shapes prepended with a dimension of length 1 to satisfy
+        property 2.
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}{Broadcasting}
+ \includegraphics[width=\textwidth]{broadcast}
+
+ \vspace{-0.3truecm}
+  \includegraphics[width=3truecm]{yourturn}
+\end{frame}
+
+\begin{frame}{Application: Mandelbrot set}
+ \begin{displaymath}
+  z_{n+1} = z_n^2+c,\ \ z_0=0
+ \end{displaymath}
+
+ Mandelbrot set contains the points for which $z$ remains bounded.
+
+ \begin{columns}
+  \begin{column}{0.5\textwidth}
+   \begin{center}
+    \includegraphics[width=0.8\textwidth]{mandelbrot}
+
+    \vspace{0.3truecm}
+    \includegraphics[width=3truecm]{yourturn}
+   \end{center}
+  \end{column}%
+  \begin{column}{0.5\textwidth}
+   \begin{center}
+    \includegraphics[width=0.675\textwidth]{mandelbrot_detail}
+
+    \vspace{2.35truecm}
+   \end{center}
   \end{column}
  \end{columns}
 \end{frame}
