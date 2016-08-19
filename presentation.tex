@@ -461,12 +461,10 @@ Default: Python float
   \end{displaymath}
  \end{Large}
 
- \vspace{0.2truecm}
  \begin{center}
   \includegraphics[width=0.7\textwidth]{axes}
  \end{center}
 
- \vspace{0.2truecm}
  \begin{columns}
   \begin{column}{0.4\textwidth}
    \begin{center}
@@ -623,6 +621,87 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
    \end{center}
   \end{column}
  \end{columns}
+\end{frame}
+
+\begin{frame}{Fibonacci series and linear algebra}
+ \begin{center}
+  \includegraphics[width=0.7\textwidth]{fibonacci}
+ \end{center}
+
+ \vspace{-0.3truecm}
+ \begin{columns}[c]
+  \begin{column}{0.5\textwidth}
+   Fibonacci series:\\ 1, 1, 2, 3, 5, 8, 13, 21, \ldots
+  \end{column}%
+  \begin{column}{0.5\textwidth}
+   \begin{displaymath}
+    F_{n+1} = F_n + F_{n-1},\quad F_1 = F_2 = 1
+   \end{displaymath}
+
+   \vspace{-0.8truecm}
+   \begin{displaymath}
+    \strut\quad\mathrm{or:}\quad
+    \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} 
+    \begin{pmatrix} F_n \\ F_{n-1} \end{pmatrix} =
+    \begin{pmatrix} F_{n+1} \\ F_n \end{pmatrix}
+   \end{displaymath}
+  \end{column}
+ \end{columns}
+
+ \begin{center}
+  What is the limit of $F_{n+1}/F_n$ for large $n$?
+ \end{center}
+\end{frame}
+
+\begin{frame}{Eigenvalue problems}
+ \begin{displaymath}
+  \begin{pmatrix}
+   a_{11} & \cdots & a_{1n} \\
+   \vdots & \ddots & \vdots \\
+   a_{n1} & \cdots & a_{nn}
+  \end{pmatrix}\begin{pmatrix}
+   v_1^{(k)} \\ \vdots \\ v_n^{(k)}
+  \end{pmatrix} = \lambda^{(k)}
+  \begin{pmatrix}
+   v_1^{(k)} \\ \vdots \\ v_n^{(k)}
+  \end{pmatrix}\qquad k=1,\ldots, n
+ \end{displaymath}
+
+ \begin{center}
+  eigenvalue $\lambda^{(k)}$\qquad\qquad
+  eigenvector $\begin{pmatrix}v_1^{(k)}\\\vdots\\v_n^{(k)}\end{pmatrix}$
+ \end{center}
+
+ for our Fibonacci problem:
+   \begin{displaymath}
+    \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} 
+    \begin{pmatrix} F_n \\ F_{n-1} \end{pmatrix} =
+    \alert{\lambda}\begin{pmatrix} F_{n+1} \\ F_n \end{pmatrix}
+   \end{displaymath}
+
+ We are looking for the eigenvalue larger than one.
+\end{frame}
+
+\begin{frame}[fragile]{Linear algebra in NumPy}
+ \texttt{import numpy.linalg as LA}
+
+ \vspace{0.3truecm}
+ \structure{Matrix and vector products}\\
+ {\small dot, vdot, inner, outer, matmul, tensordot, einsum, LA.matrix\_power,
+ kron}\\[0.2truecm]
+ \structure{Decompositions}\\
+ {\small LA.cholesky, LA.qr, LA.svd}\\[0.2truecm]
+ \structure{Matrix eigenvalues}\\[-1.32truecm]
+ \alert{\small LA.eig, LA.eigh, LA.eigvals, LA.eigvalsh}\qquad
+ \includegraphics[width=3truecm]{yourturn}\\[0.2truecm]
+ \structure{Norms and other numbers}\\
+ {\small LA.norm, LA.cond, LA.det, LA.matrix\_rank, LA.slogdet,
+ trace}\\[0.2truecm]
+ \structure{Solving equations and inverting matrices}
+ {\small LA.solve, LA.tensorsolve, LA.lstsq, LA.inv, LA.pinv, LA.tensorinv}
+
+ \vspace{0.6truecm}
+ hint: see also the methods for linear algebra in SciPy
 \end{frame}
 
 \end{document}
