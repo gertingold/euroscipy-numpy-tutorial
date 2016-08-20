@@ -19,4 +19,5 @@ for j in range(niter):
     z[np.abs(z) > nthres] = np.ma.masked
     imdata[np.abs(z) > nthres] = np.ma.masked
 imdata.mask = False
+imdata = np.sqrt(imdata)
 plt.imsave('mandelbrot_detail.png', imdata, cmap='afmhot')
