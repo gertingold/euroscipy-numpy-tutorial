@@ -7,8 +7,10 @@
 \usepackage{beramono}
 \usepackage{fontawesome}
 \usepackage{pifont}
+\usepackage{amsmath}
 \usepackage{rotating}
 \usepackage{listings}
+\usepackage{nicefrac}
 \usepackage{ulem}
 \usepackage{hyperref}
 
@@ -453,6 +455,15 @@ Default: Python float
  \end{center}
 \end{frame}
 
+\begin{frame}{Application: sieve of Eratosthenes}
+ \includegraphics[width=\textwidth]{eratosthenes_1}\\[0.3truecm]
+ \includegraphics[width=\textwidth]{eratosthenes_2}\\[0.3truecm]
+ \includegraphics[width=\textwidth]{eratosthenes_3}\\[0.3truecm]
+ \includegraphics[width=\textwidth]{eratosthenes_4}\\[0.3truecm]
+ \includegraphics[width=\textwidth]{eratosthenes_5}\\[0.3truecm]
+ \includegraphics[width=\textwidth]{eratosthenes_6}
+\end{frame}
+
 \begin{frame}{Axes}
  \begin{Large}
   \begin{displaymath}
@@ -627,6 +638,32 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
  \end{columns}
 \end{frame}
 
+\begin{frame}{Application: $\pi$ from random numbers}
+ \begin{columns}
+  \begin{column}{0.4\textwidth}
+   \begin{center}
+    \includegraphics[width=0.8\textwidth]{random_pi}
+   \end{center}
+  \end{column}%
+  \begin{column}{0.6\textwidth}
+   \begin{enumerate}
+    \item Create pairs of random numbers and determine the fraction of pairs which
+          has a distance from the origin less than one.
+    \item Multiply the result by four to obtain an approximation of $\pi$.
+   \end{enumerate}
+  \end{column}
+ \end{columns}
+
+ \vspace{0.5truecm}
+ hint: \texttt{count\_nonzero(a)} counts the number of non-zero values in the array \texttt{a} and
+ also works for Boolean arrays. Remember that \texttt{np.info(\dots)} can be helpful.
+
+ \vspace{0.3truecm}
+ \begin{center}
+  \includegraphics[width=3truecm]{yourturn}
+ \end{center}
+\end{frame}
+
 \begin{frame}{Fibonacci series and linear algebra}
  \begin{center}
   \includegraphics[width=0.7\textwidth]{fibonacci}
@@ -686,7 +723,7 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
  We are looking for the eigenvalue larger than one.
 \end{frame}
 
-\begin{frame}[fragile]{Linear algebra in NumPy}
+\begin{frame}{Linear algebra in NumPy}
  \texttt{import numpy.linalg as LA}
 
  \vspace{0.3truecm}
@@ -706,6 +743,71 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
 
  \vspace{0.6truecm}
  hint: see also the methods for linear algebra in SciPy
+\end{frame}
+
+\begin{frame}{Statistics in NumPy}
+ \structure{Order statistics}\\
+ \small{amin, amax, nanmin, nanmax, ptp, percentile, nanpercentile}\\[0.2truecm]
+ \structure{Averages and variances}\\
+ \small{median, average, mean, std, var, nanmedian, nanmean, nanstd, nanvar}\\[0.2truecm]
+ \structure{Correlating}\\
+ \small{corrcoef, correlate, cov}\\[0.2truecm]
+ \structure{Histograms}\\
+ \small{histogram, histogram2d, histogramdd, bincount, digitize}
+\end{frame}
+
+\begin{frame}{Application: Brownian motion}
+ \begin{center}
+  \includegraphics[width=0.8\textwidth]{diffusion}
+ \end{center}
+
+ \begin{enumerate}
+  \item Simulate several trajectories for a one-dimensional Brownian motion\\
+        hint: \texttt{np.random.choice}
+  \item Plot the mean distance from the origin as a function of time\\
+  \item Plot the variance of the trajectories as a function of time
+ \end{enumerate}
+
+ \vspace{0.3truecm}
+ \begin{center}
+  \includegraphics[width=3truecm]{yourturn}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Sorting, searching, and counting in NumPy}
+ 
+ \structure{Sorting}\\
+ \small{sort, lexsort, argsort, ndarray.sort, msort, sort\_complex, partition,
+        argpartition}\\[0.2truecm]
+ \structure{Searching}\\
+ \small{argmax, nanargmax, argmin, nanargmin, argwhere, nonzero, flatnonzero,
+        where, searchsorted, extract}\\[0.2truecm]
+ \structure{Counting}\\
+ \small{count\_nonzero}
+\end{frame}
+
+\begin{frame}{Application: identify entry closest to $\nicefrac{1}{2}$}
+ \begin{displaymath}
+  \begin{pmatrix}
+   0.05344164 & \alert{0.37648768} & 0.80691163 & 0.71400815\\
+   \alert{0.60825034} & 0.35778938 & 0.37393356 & 0.32615374\\
+   0.83118547 & 0.33178711 & 0.21548027 & \alert{0.42209291}
+  \end{pmatrix}
+ \end{displaymath}
+
+ \begin{displaymath}
+  \Downarrow
+ \end{displaymath}
+
+ \begin{displaymath}
+  \begin{pmatrix}
+   \alert{0.37648768}\\ \alert{0.60825034}\\ \alert{0.42209291}
+  \end{pmatrix}
+ \end{displaymath}
+
+ \vspace{0.3truecm}
+ \includegraphics[width=3truecm]{yourturn}\qquad
+ \raisebox{0.7truecm}{hint: use \texttt{np.argsort}}
 \end{frame}
 
 \end{document}
