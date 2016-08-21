@@ -160,8 +160,11 @@
   \includegraphics[width=\textwidth]{listindexing1}
  \end{center}
  \begin{itemize}
-  \item slice contains the elements \texttt{start} to \texttt{stop-1}
-  \item slice contains \texttt{stop-start} elements
+  \item if \texttt{step=1}
+  \begin{itemize}
+      \item slice contains the elements \texttt{start} to \texttt{stop-1}
+      \item slice contains \texttt{stop-start} elements
+  \end{itemize}
   \item default values:
   \begin{itemize}
       \item \makebox[1.5truecm]{\texttt{start}\hfill} 0 (first element)
@@ -522,8 +525,9 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
    \includegraphics[width=3truecm]{yourturn}
 
    \vspace{0.4truecm}
-   try \texttt{np.dot$(\cdot, \cdot)$}\\
-   and \texttt{$\cdot\,@\,\cdot$}\,$^{*)}$
+   try \texttt{np.dot$(\bullet, \bullet)$}\\
+   \strut\hphantom{try\ }\texttt{\bullet.dot(\bullet)}\\
+   \strut\hphantom{try\ }\texttt{$\bullet\,@\,\bullet$}\,$^{*)}$
    
    \vspace{0.7truecm}
    \hbox to 1truecm{\hrulefill}
