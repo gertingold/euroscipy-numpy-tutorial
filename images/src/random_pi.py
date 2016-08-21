@@ -21,6 +21,6 @@ for tick in (0, 1):
     c.text(dist, -1.5*ticklen, str(tick), [text.halign.center, text.valign.top])
     c.stroke(path.line(0, dist, -ticklen, dist))
     c.text(-1.5*ticklen, dist, str(tick), [text.halign.right, text.valign.middle])
-c.text(0.4*side, 0.4*side, r'\huge$\frac{\pi}{4}$',
+c.text(0.4*side, 0.4*side, r'\huge$\nicefrac{\pi}{4}$',
        [text.halign.center, text.valign.middle, darkcolor])
 c.writePDFfile()
