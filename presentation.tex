@@ -810,4 +810,73 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
  \raisebox{0.7truecm}{hint: use \texttt{np.argsort}}
 \end{frame}
 
+\begin{frame}{Polynomials in NumPy}
+ Power series: \texttt{numpy.polynomial.polynomial}
+
+ \vspace{0.2truecm}
+ \structure{Polynomial Class}\\
+ \small{Polynomial}\\[0.1truecm]
+ \structure{Basics}\\
+ \small{polyval, polyval2d, polyval3d, polygrid2d, polygrid3d, polyroots,
+        polyfromroots}\\[0.1truecm]
+ \structure{Fitting}\\
+ \small{polyfit, polyvander, polyvander2d, polyvander3d}\\[0.1truecm]
+ \structure{Calculus}\\
+ \small{polyder, polyint}\\[0.1truecm]
+ \structure{Algebra}\\
+ \small{polyadd, polysub, polymul, polymulx, polydiv, polypow}\\[0.1truecm]
+ \structure{Miscellaneous}\\
+ \small{polycompanion, polydomain, polyzero, polyone, polyx, polytrim, polyline}
+
+ \vspace{0.2truecm}
+ \small{also: Chebyshev, Legendre, Laguerre, Hermite polynomials}
+\end{frame}
+
+\begin{frame}{Some examples}
+ \begin{small}
+  \structure{\texttt{P.Polynomial([24, -50, 35, -10, 1])}}
+  \begin{displaymath}
+   p_4(x) = x^4-10x^3+35x^2-50x+24 = (x-1)(x-2)(x-3)(x-4)
+  \end{displaymath}
+
+  \structure{\texttt{p4.deriv()}}
+  \begin{displaymath}
+   \frac{\text{d}p_4(x)}{\text{d}x} = 4x^3-30x^2+70x-50
+  \end{displaymath}
+
+  \structure{\texttt{p4.integ()}}
+  \begin{displaymath}
+   \int p_4(x)\text{d}x = \frac{1}{5}x^5-\frac{5}{2}x^4+\frac{35}{3}x^3
+                          -25x^2+24x+C
+  \end{displaymath}
+
+  \structure{\texttt{p4.polydiv()}}
+  \begin{displaymath}
+   \frac{p_4(x)}{2x+1} = \frac{1}{2}x^3-\frac{21}{4}x^2+\frac{161}{8}x-\frac{561}{16}
+   +\frac{945}{16p_4(x)}
+  \end{displaymath}
+ \end{small}
+\end{frame}
+
+\begin{frame}{Application: polynomial fit}
+ \begin{center}
+  \includegraphics[width=0.7\textwidth]{polyfit}
+ \end{center}
+
+ \vspace{-0.5truecm}
+ \begin{columns}
+  \begin{column}{0.4\textwidth}
+   \begin{center}
+    \includegraphics[width=3truecm]{yourturn}
+   \end{center}
+  \end{column}%
+  \begin{column}{0.6\textwidth}
+   add some noise to a function and fit it to a polynomial
+  \end{column}%
+ \end{columns}
+
+ \vspace{0.3truecm}
+ \small{see \texttt{scipy.optimize.curve\_fit} for general fit functions}
+\end{frame}
+
 \end{document}
