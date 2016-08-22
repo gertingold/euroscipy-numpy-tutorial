@@ -879,4 +879,42 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
  \small{see \texttt{scipy.optimize.curve\_fit} for general fit functions}
 \end{frame}
 
+\begin{frame}[fragile]{Application: image manipulation}
+
+ \begin{lstlisting}
+from scipy import misc
+face = misc.face(gray=True)
+ \end{lstlisting}
+
+ \vspace{-0.2truecm}
+ \begin{columns}
+  \begin{column}{0.33\textwidth}
+   \begin{center}
+    \includegraphics[width=0.9\textwidth]{face0}
+    
+    \vspace{2.4truecm}
+   \end{center}
+  \end{column}%
+  \begin{column}{0.33\textwidth}
+   \begin{center}
+    \includegraphics[width=0.9\textwidth]{face1}
+
+    \includegraphics[width=0.9\textwidth]{face3}
+   \end{center}
+  \end{column}%
+  \begin{column}{0.33\textwidth}
+   \begin{center}
+    \includegraphics[width=0.9\textwidth]{face2}
+
+    \includegraphics[width=0.9\textwidth]{face4}
+   \end{center}
+  \end{column}%
+ \end{columns}
+
+ \vspace{0.2truecm}
+ \begin{center}
+  \includegraphics[width=3truecm]{yourturn}
+ \end{center}
+\end{frame}
+
 \end{document}
