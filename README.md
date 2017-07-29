@@ -1,7 +1,8 @@
 # euroscipy-numpy-tutorial
 ## Introduction to NumPy arrays
 
-This repository contains material for an introductory tutorial on NumPy at EuroSciPy 2016.
+This repository contains material for an introductory tutorial on NumPy at EuroSciPy 2016
+and EuroSciPy 2017.
 
 The Jupyter notebook is useful for doing the exercises during the tutorial:
 
