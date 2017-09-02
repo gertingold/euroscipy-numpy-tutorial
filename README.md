@@ -15,3 +15,10 @@ There is also a version of the Jupyter notebook containing solutions:
 The slides for the tutorial can be found here:
 
  * [Presentation (PDF)](https://raw.githubusercontent.com/gertingold/euroscipy-numpy-tutorial/master/presentation.pdf)
+
+#### Releases
+##### v2016
+Introductory tutorial in two parts given at EuroSciPy 2016 in Erlangen on August 23, 2016.
+##### v2017
+Introductory tutorial in two parts given at EuroSciPy 2017 in Erlangen on August 28, 2017.
+Two videos ([part1](https://www.youtube.com/watch?v=R2rCYf3pv-M) and [part2](https://www.youtube.com/watch?v=sunNXIxIGV8)) are available on Youtube.
