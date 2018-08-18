@@ -15,8 +15,8 @@ class Fibonacci():
 
     def initialize_pyx(self):
         text.set(text.LatexRunner)
-        text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}')
-        unit.set(xscale=2, wscale=7)
+        text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
+        unit.set(xscale=2.5, wscale=7)
 
     def draw(self):
         p = path.path(path.moveto(*self.corners[0]),

@@ -34,8 +34,8 @@ def make_stride_figure(c, lowerstride, uperstride=1, nrentries=6):
                    [text.halign.center, text.valign.top, textcolor])
 
 text.set(text.LatexRunner)
-text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}')
-unit.set(xscale=1.2, wscale=1.5)
+text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
+unit.set(xscale=1.6, wscale=1.5)
 
 for stride in (0, 2, 3):
     c = canvas.canvas()

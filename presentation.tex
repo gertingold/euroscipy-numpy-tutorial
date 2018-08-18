@@ -1,10 +1,12 @@
-% lualatex presentation
+% pdflatex presentation
 
 \documentclass[svgnames]{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage{fontspec}
-\usepackage{arev}
-\usepackage{beramono}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault,scaled=.85,lining]{FiraSans}
+\usepackage[scaled=0.85,lining]{FiraMono}
+\usepackage{newtxsf}
 \usepackage{fontawesome}
 \usepackage{pifont}
 \usepackage{amsmath}
@@ -26,6 +28,7 @@
 %  \vspace{2em}}
 }
 
+\setbeamerfont{frametitle}{family=\sffamily\firamedium}
 \setbeamercolor{alerted text}{fg=red!70!black}
 \setbeamercolor{structure}{fg=Navy}
 
@@ -43,11 +46,8 @@
   ,escapechar=/
 }
 
-\newfontfamily\DejaSans{DejaVu Sans}
 \definecolor{positive}{rgb}{0, 0.5, 0}
 \definecolor{negative}{rgb}{0.7, 0, 0}
-\newcommand\smiley{\textcolor{positive}{\DejaSans ☺}}
-\newcommand\frownie{\textcolor{negative}{\DejaSans ☹}}
 \definecolor{myred}{rgb}{0.8, 0, 0}
 \definecolor{mygreen}{rgb}{0, 0.6, 0}
 \definecolor{myblue}{rgb}{0, 0, 0.8}
@@ -63,12 +63,14 @@
 \begin{document}
 
 \begin{frame}
+
+ \vspace{3.5truecm}
  \begin{center}
-  \structure{\Large\textbf{Introduction to NumPy arrays}}\\[0.3truecm]
-  \structure{\large Gert-Ludwig Ingold}
+  \structure{\huge\textbf{Introduction to NumPy arrays}}\\[0.4truecm]
+  \structure{\Large Gert-Ludwig Ingold}
 
   \vspace{2truecm}
-  \faicon{github}\ \ttfamily{\scriptsize https://github.com/gertingold/euroscipy-numpy-tutorial.git}
+  \faGithub\ \ttfamily{\footnotesize https://github.com/gertingold/euroscipy-numpy-tutorial.git}
  \end{center}
 \end{frame}
 
@@ -132,7 +134,7 @@
    \end{displaymath}
   \end{column}%
   \begin{column}{0.45\textwidth}
-   \includegraphics[width=0.7\textwidth]{rgbarray}
+   \qquad\includegraphics[width=0.7\textwidth]{rgbarray}
 
    colour image as $N\times M\times3$-array
   \end{column}
@@ -215,8 +217,9 @@ matrix = [[0, 1, 2],
   \end{column}
  \end{columns}
  \begin{itemize}
-  \item How can we extract a row? \uncover<3>{\smiley}
-  \item How can we extract a column? \uncover<3>{\frownie}
+% \item How can we extract a row? \uncover<3>{\smiley}
+  \item How can we extract a row? \uncover<3>{\textcolor{positive}{\faSmileO}}
+  \item How can we extract a column? \uncover<3>{\textcolor{negative}{\faFrownO}}
  \end{itemize}
 
  \vspace{0.3truecm}
@@ -552,8 +555,8 @@ array(/\textcolor{myred}{[}\textcolor{mygreen}{[}\textcolor{myblue}{[}/ 0,  1,  
    \includegraphics[width=3truecm]{yourturn}
 
    \vspace{0.4truecm}
-   try \texttt{np.dot$(\bullet, \bullet)$}\\
-   \strut\hphantom{try\ }\texttt{\bullet.dot(\bullet)}\\
+   try \texttt{np.dot($\bullet$, $\bullet$)}\\
+   \strut\hphantom{try\ }\texttt{$\bullet$.dot($\bullet$)}\\
    \strut\hphantom{try\ }\texttt{$\bullet\,@\,\bullet$}\,$^{*)}$
    
    \vspace{0.7truecm}

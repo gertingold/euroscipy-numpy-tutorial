@@ -1,8 +1,9 @@
 from pyx import canvas, color, deco, path, text, unit
 
 text.set(text.LatexRunner)
-text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}\usepackage{nicefrac}')
-unit.set(xscale=1.0, wscale=1.2)
+text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
+text.preamble(r'\usepackage{nicefrac}')
+unit.set(xscale=1.4, wscale=1.2)
 
 c = canvas.canvas()
 r = 0.05

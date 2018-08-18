@@ -6,8 +6,8 @@ def draw_square(x, y, kante):
     c.stroke(path.rect(x, y, kante, kante), [style.linewidth.thick])
 
 text.set(text.LatexRunner)
-text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}')
-unit.set(xscale=0.85, wscale=1.2)
+text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
+unit.set(xscale=1.2, wscale=1.2)
 c = canvas.canvas()
 
 kante = 1

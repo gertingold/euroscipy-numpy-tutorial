@@ -4,8 +4,8 @@ from math import atan2, pi, sqrt
 from pyx import canvas, color, deco, path, text, trafo, unit
 
 text.set(text.LatexRunner)
-text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}')
-unit.set(xscale=1.2, wscale=1.5)
+text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
+unit.set(xscale=1.6, wscale=1.5)
 
 frontplane = canvas.canvas()
 backplane = canvas.canvas()

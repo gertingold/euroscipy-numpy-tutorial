@@ -22,9 +22,7 @@ def arraygraphics(a, idxstr, title=True, xscale=1.0,
     exec("highlighted{} = True".format(idxstr))
     unit.set(xscale=xscale)
     text.set(text.LatexRunner)
-    text.preamble(r"""\usepackage{tgheros}
-        \renewcommand*\familydefault{\sfdefault}
-        \usepackage[T1]{fontenc}""")
+    text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
     c = canvas.canvas()
     for ny, nx in zip(*np.nonzero(highlighted)):
         c.fill(path.rect(nx, n0-ny, 1, -1), [bgcolor])

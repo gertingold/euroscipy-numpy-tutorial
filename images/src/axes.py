@@ -3,11 +3,11 @@ from pyx import canvas, color, deco, path, text, trafo, unit
 text.set(text.LatexRunner)
 color0 = color.rgb(0.8, 0, 0)
 color1 = color.rgb(0, 0, 0.8)
-text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}')
+text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
 text.preamble(r'\usepackage{color}')
 text.preamble(r'\definecolor{axis0}{rgb}{%s, %s, %s}' % (color0.r, color0.g, color0.b))
 text.preamble(r'\definecolor{axis1}{rgb}{%s, %s, %s}' % (color1.r, color1.g, color1.b))
-unit.set(xscale=1.2, wscale=1.5)
+unit.set(xscale=1.6, wscale=1.5)
 
 dx = 2
 dy = 0.8

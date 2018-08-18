@@ -11,8 +11,8 @@ def draw_grid():
     c.stroke(path.line(0, 1, 25, 1))
 
 text.set(text.LatexRunner)
-text.preamble(r'\usepackage{arev}\usepackage[T1]{fontenc}')
-unit.set(xscale=1.2, wscale=2.5)
+text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
+unit.set(xscale=1.7, wscale=2.5)
 
 c = canvas.canvas()
 c.fill(path.rect(0, 1, 2, 1), [color.grey(0.7)])

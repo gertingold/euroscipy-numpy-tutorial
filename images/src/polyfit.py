@@ -1,12 +1,16 @@
 import numpy as np
 import numpy.polynomial.polynomial as P
 
-from pyx import color, deco, graph, style
+from pyx import color, deco, graph, style, text, unit
 
 np.random.seed(987)
 x = np.pi*np.linspace(0, 1, 100)
 y = np.sin(x)+0.1*np.random.rand(100)
 fit = P.Polynomial(P.polyfit(x, y, 2))
+
+text.set(text.LatexRunner)
+text.preamble(r'\usepackage[sfdefault,scaled=.85,lining]{FiraSans}\usepackage{newtxsf}')
+unit.set(xscale=1.2)
 
 g = graph.graphxy(width=8,
         x=graph.axis.lin(title=r'\Large $x$', divisor=np.pi,
