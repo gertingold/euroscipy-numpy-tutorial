@@ -1,6 +1,8 @@
 # euroscipy-numpy-tutorial
 ## Introduction to NumPy arrays
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/gertingold/euroscipy-numpy-tutorial/master?filepath=numpy-tutorial-exercises.ipynb)
+
 This repository contains material for an introductory tutorial on NumPy at EuroSciPy 2016,
 EuroSciPy 2017, and EuroSciPy 2018.
 
